@@ -29,7 +29,18 @@ app.configure('production', function(){
 
 // Routes
 
-app.get('/', routes.index);
+//app.get('/', routes.index);
+//app.get('about/', routes.about);
+app.get('/', function(req, res){
+    res.render('index', {title: 'Home'});
+});
 
+app.get('/about', function(req, res){
+    res.render('about', {title:'About'});
+});
+
+app.get('/contact', function(req, res){
+    res.render('contact', {title:'Contact'});
+});
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
